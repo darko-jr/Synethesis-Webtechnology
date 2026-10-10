@@ -1,0 +1,267 @@
+/* 1. Global Reset & Box Model */
+html {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  background-color: lightblue;
+  color: #222;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1a1a1a;
+}
+
+/* 2. Responsive Layout Structure */
+.layout-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Controls Sidebar */
+.controls-panel {
+  flex: 1;
+  background: lightgray;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.controls-panel fieldset {
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.controls-panel legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+  text-decoration: underline;
+}
+
+.control-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.control-group input[type="number"] {
+  width: 80px;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Main Visualizer Stage */
+.visualizer-stage {
+  flex: 2;
+  background: lightgray;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Concentric Box Model Rings */
+.stage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 420px;
+  background-color: #fafafa;
+  border: 1px dashed #bbb;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  overflow: auto;
+  padding: 1rem;
+}
+
+/* Outer Margin Layer (Orange Tint) */
+.layer-margin {
+  background-color: #f9cc9d;
+  border: 2px dashed #e67e22;
+  padding: 30px;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+/* Border Layer (Yellow Tint) */
+.layer-border {
+  background-color: #fde3a7;
+  border: 5px solid #f39c12;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+/* Padding Layer (Green Tint) */
+.layer-padding {
+  background-color: #c8f7c5;
+  border: 1px dashed #27ae60;
+  padding: 20px;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+/* Innermost Content Layer (Blue Tint) */
+.layer-content {
+  background-color: #89c4f4;
+  border: 1px solid #2980b9;
+  width: 300px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.layer-tag {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  pointer-events: none;
+}
+
+#dimensionBadge {
+  margin: 0;
+  font-weight: bold;
+  color: #0b3c5d;
+}
+
+/* 4. Tabular Data Presentation */
+.metrics-table {
+  width: 100%;
+  max-width: 550px;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.metrics-table caption {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.metrics-table th,
+.metrics-table td {
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
+.metrics-table thead th {
+  background-color: #f0f3f6;
+  font-weight: 600;
+}
+
+.metrics-table tbody th {
+  text-align: left;
+  background-color: #fbfbfb;
+}
+
+.metrics-table tfoot th,
+.metrics-table tfoot td {
+  font-weight: bold;
+  background-color: #eaf2f8;
+  border-top: 2px solid #2980b9;
+}
+
+/* 5. Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .layout-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Navigation Links */
+.site-nav {
+  margin-top: 1rem;
+}
+
+.nav-link {
+  display: inline-block;
+  background-color: #2980b9;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: #1c5980;
+}
+
+/* Standalone Glossary Layout */
+.layout-wrapper.single-column {
+  max-width: 800px;
+}
+
+.glossary-card {
+  width: 100%;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.glossary-card dl {
+  margin: 0;
+}
+
+.glossary-card dt {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 1.25rem;
+}
+
+.glossary-card dt:first-child {
+  margin-top: 0;
+}
+
+.glossary-card dt code {
+  background-color: #eef2f5;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.glossary-card dd {
+  margin-left: 0;
+  margin-top: 0.35rem;
+  color: #444;
+  line-height: 1.6;
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Box Model Visualizer</title>
+  <link rel ="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+    <h1>CSS Box Model Visualizer</h1>
+    <p>Explore how margins, borders, padding, and content interact dynamically.</p>
+    <nav class="site-nav">
+      <a href="glossary.html" class="nav-link">Understand some key concepts &rarr;</a>
+    </nav>
+  </header>
+
+  <div class="layout-wrapper">
+    <aside class="controls-panel">
+      <h2>Box Controls</h2>
+      <form id="boxForm">
+        <!-- Box Model Mode Selector -->
+        <fieldset>
+          <legend>Box Sizing Model</legend>
+
+          <div>
+            <input type="radio" id="contentBox" name="boxSizing" value="content-box" checked>
+            <label for="contentBox">Standard (<code>content-box</code>)</label>
+          </div>
+
+          <div>
+            <input type="radio" id="borderBox" name="boxSizing" value="border-box">
+            <label for="borderBox">Alternative (<code>border-box</code>)</label>
+          </div>
+        </fieldset>
+
+        <!-- Dimension Controls -->
+        <fieldset>
+          <legend>Dimensions & Spacing (<code>px</code>)</legend>
+
+          <div class="control-group">
+            <label for="contentWidth">Width:</label>
+            <input type="number" id="contentWidth" name="width" min="100" max="500" value="300" step="10">
+          </div>
+
+          <div class="control-group">
+            <label for="contentHeight">Height:</label>
+            <input type="number" id="contentHeight" name="height" min="50" max="300" value="150" step="10">
+          </div>
+
+          <div class="control-group">
+            <label for="boxPadding">Padding:</label>
+            <input type="number" id="boxPadding" name="padding" min="0" max="80" value="20" step="5">
+          </div>
+
+          <div class="control-group">
+            <label for="boxBorder">Border Width:</label>
+            <input type="number" id="boxBorder" name="border" min="0" max="30" value="5" step="1">
+          </div>
+
+          <div class="control-group">
+            <label for="boxMargin">Margin:</label>
+            <input type="number" id="boxMargin" name="margin" min="0" max="80" value="30" step="5">
+          </div>
+        </fieldset>
+      </form>
+    </aside>
+
+    <!-- Main visual workspace -->
+    <main class="visualizer-stage">
+      <h2>Visualizer Output</h2>
+      <!-- Live Concentric Box Layers -->
+      <div class="stage-container">
+        <div class="layer-margin" id="marginLayer">
+          <span class="layer-tag">margin</span>
+          <div class="layer-border" id="borderLayer">
+            <span class="layer-tag">border</span>
+            <div class="layer-padding" id="paddingLayer">
+              <span class="layer-tag">padding</span>
+              <div class="layer-content" id="contentLayer">
+                <span class="layer-tag">content</span>
+                <p id="dimensionBadge">300 x 150</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabular Calculation Breakdown -->
+      <table class="metrics-table">
+        <caption>Box Dimension Calculations</caption>
+        <thead>
+          <tr>
+            <th scope="col">Component</th>
+            <th scope="col">Horizontal (px)</th>
+            <th scope="col">Vertical (px)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Content Box</th>
+            <td id="metricContentW">300</td>
+            <td id="metricContentH">150</td>
+          </tr>
+          <tr>
+            <th scope="row">Padding (Total)</th>
+            <td id="metricPaddingW">40</td>
+            <td id="metricPaddingH">40</td>
+          </tr>
+          <tr>
+            <th scope="row">Border (Total)</th>
+            <td id="metricBorderW">10</td>
+            <td id="metricBorderH">10</td>
+          </tr>
+          <tr>
+            <th scope="row">Margin (Total)</th>
+            <td id="metricMarginW">60</td>
+            <td id="metricMarginH">60</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">Total Space Taken</th>
+            <td id="metricTotalW">410</td>
+            <td id="metricTotalH">260</td>
+          </tr>
+        </tfoot>
+      </table>
+    </main>
+  </div>
+  <hr/>
+  <footer>
+    <p>Created by <a href="https://github.com/darko-jr/Synethesis-Webtechnology">Daniel Darko</a></p>
+    <p> &copy; Daniel Darko. All rights reserved. 2026</p>
+    <p>Built to demonstrate standard vs. alternative CSS box sizing models.</p>
+  </footer>
+  <hr/>
+
+</body>
+</html>

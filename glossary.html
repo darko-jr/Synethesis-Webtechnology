@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CSS Box Model Glossary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Box Model Key Concepts</h1>
+    <p>A reference guide to CSS spacing, borders, and sizing behaviors.</p>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">&larr; Back to Visualizer</a>
+    </nav>
+  </header>
+
+  <div class="layout-wrapper single-column">
+    <main class="glossary-card">
+      <dl>
+        <dt><u><code>content-box</code> (Standard Model)</u></dt>
+        <dd>
+          The default browser behavior where <code>width</code> and <code>height</code> apply exclusively to the content area. Padding and border values are added on top, increasing the element's actual rendered size on the screen.
+        </dd>
+
+        <dt><u><code>border-box</code> (Alternative Model)</u></dt>
+        <dd>
+          Activated by setting <code>box-sizing: border-box</code>. Declared <code>width</code> and <code>height</code> include the content, padding, and border. The inner content shrinks automatically as padding and borders expand.
+        </dd>
+
+        <dt><u>Content Area</u></dt>
+        <dd>
+          The innermost rectangular box where text, media, and nested elements are placed.
+        </dd>
+
+        <dt><u>Padding</u></dt>
+        <dd>
+          The space between the content area and the border. The element's background color or background image extends through this area. Negative padding is invalid in CSS.
+        </dd>
+
+        <dt><u>Border</u></dt>
+        <dd>
+          The visible or invisible line drawn between the padding and margin. Configured via shorthand (<code>border</code>) or individual properties for width, style, and color.
+        </dd>
+
+        <dt><u>Margin</u></dt>
+        <dd>
+          The outermost buffer zone that pushes neighboring elements away. Margins can accept negative values, which pull elements closer or cause them to overlap.
+        </dd>
+
+        <dt><u>Margin Collapsing</u></dt>
+        <dd>
+          When two vertical block margins touch, they combine into a single margin equal to the larger of the two values, rather than adding together.
+        </dd>
+      </dl>
+    </main>
+  </div>
+
+  <footer>
+    <p>Built to demonstrate standard vs. alternative CSS box sizing models.</p>
+  </footer>
+
+</body>
+</html>
